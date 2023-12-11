@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Yatra+One&family=Zilla+Slab&display=swap');
+
+:root{
+
+    /* Fonts */
+    --logo:'Shadows Into Light', serif;
+    --nav: 'Zilla Slab', serif;
+    --delivery: 'Yatra One', serif;
+    --headers: 'Shadows Into Light', serif;
+    --txt:'Zilla Slab', serif, arial;
+
+
+    /* Colours */
+    --banners: #000000;
+    --banner-txt: #ffffff;
+    --nav-hover: #ff0000;
+    --nav-bar: #777777;
+    --txt-color: #000000;
+    --bg-fade: #ffffffc2;
+    --side-nav: #ffffff;
+    --bg-color: #aaaaaa;;
+    --toast-bg: rgba(211, 227, 252, 0.966);
+    --btn-color: #8f8888;
+    --rating: darkorange;
+
+    /* Button Styling */
+    --btn-border-1: #001aff ridge 3px;
+    --btn-border-2: #ff0000 ridge 3px ;
+    --btn-nav:  #ffffff;
+    --sort-btn:#ffffff00;
+    --sort-btn-arrow: #ffffff;
+    --btn-quantity-shadow: 0px 5px 5px 0px rgba(255, 0, 0, 0.4);
+    --btn-quantity-border: 2px solid rgba(255, 0, 0, 0.4);
+
+    /* Box Styling */
+    --main-box-shadows: 3px 3px 3px 3px rgba(255, 0, 0, 0.4);
+    --sort-items-bax-shadow: 0px 10px 10px 0px rgba(255, 0, 0, 0.4);
+}
+
+body{
+    background: url(../images/background-image.webp) no-repeat center;
+    background-attachment:fixed;
+    background-color: var(--bg-color);
+}
+
+/* Background transparent screen */
+
+.bg-fade{
+    background-color: var(--bg-fade);
+}
+
+/* header */
+
+.logo {
+    font-family: var(--logo);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.nav-top{
+    position:relative;
+}
+
+.nav-bg{
+    background-color: var(--nav-bar);
+}
+
+.nav-txt{
+    color: var(--txt);
+    font-family: var(--nav);
+    font-size: 1.15rem;
+}
+
+.nav-txt:hover{
+    color: var(--nav-hover);
+}
+
+.nav-btn{
+    background-color: var(--btn-nav)
+}
+
+.nav-btn:hover{
+    background-color: var(--nav-hover);
+}
+
+.delivery-banner{
+    background-color: var(--banners);
+    color: var(--banner-txt);
+    font-family: var(--delivery);
+    font-size: 1rem;
+}
+
+.delivery-text{
+    font-size: 1.5rem;
+
+}
+
+
+/* footer */
+
+footer{
+    background-color: var(--nav-bar);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 2.5rem;
+}
+
+footer a{
+    padding-top: 10px;
+}
+
+footer a:hover{
+    background-color: var(--nav-hover);
+}
+
+
+
+
+
+/* Media queries*/
+
+
+
+@media (min-width: 767px) {
+    .side-nav{
+        width: 11rem;
+        padding: 1rem;
+        margin-top: 1rem;
+        position:fixed;
+        
+    }
+    .main-content{
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 970px) {
+    .main-content{
+        margin-right: auto;
+    }
+}

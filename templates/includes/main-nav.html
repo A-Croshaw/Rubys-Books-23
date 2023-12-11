@@ -1,0 +1,134 @@
+<ul class="navbar-nav p-0">
+    <!--Logo-->
+    <li class="nav-item d-none d-md-block pb-4">
+        <a href="{% url 'home' %}" class="nav-link p-0 nav-txt" aria-label="Return to home page">
+            <h1 class="logo">Ruby's</h1>
+        </a>
+    </li>
+    <!--Nave items-->
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'home' %}" id="home-link" aria-label="Return to home page">
+            Home
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View all products">
+            All Books
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" id="all-books-link" aria-label="View childrens books">
+            Childrens Books
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View teen books">
+            Teen Books
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View adult books">
+            Adult Books
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View cooking books">
+            Cook Books
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View biographies books">
+            Biographies
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View technology books">
+            Technology
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View health books">
+            Health
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View business books">
+            Business
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View home and garden books">
+            Home & Garden
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View science books">
+            Science
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View history books">
+            History
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View music books">
+            Music
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View sport books">
+            Sport
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View poetry books">
+            Poetry
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View about our company">
+            About Us
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="go to contact us page">
+            Contact Us
+        </a>
+    </li>
+    <li class="nav-item dropdown d-block d-md-none">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" aria-label="Accounts">
+            My Account
+        </a>
+        <ul class="dropdown-menu border-0">
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+            <!--Product management links for admin users-->
+            <a href="" class="dropdown-item" aria-label="View Book managment">Book Management</a>
+            {% endif %}
+            <!--Profile link-->
+            <a href="" class="dropdown-item" aria-label="go to my profile">My Profile</a>
+            <!--Account links-->
+            <li><a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="logout">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="Register">Register</a></li>
+            <li><a href="{% url 'account_login' %}" class="dropdown-item" aria-label="Login">Login</a></li>
+            {% endif %}
+        </ul>
+    </li>
+    <!--Shopping cart-->
+    <li class="list-inline-item d-none d-md-block">
+        <a class="nav-link" href="" aria-label="View shopping cart">
+            <div class="text-left nav-txt">
+                <p class="my-0">
+                    {% if overal_total %}
+                    ${{ overal_total|floatformat:2 }}
+                    {% else %}
+                    €0.00
+                    {% endif %}
+                    <i class="fas fa-shopping-bag fa-sm"></i></p>
+            </div>
+        </a>
+    </li>
+</ul>
