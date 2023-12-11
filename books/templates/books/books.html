@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<div class="container offset-md-1 text-center  pb-4">
+    <div class="container m-0 p-0 pb-2">
+        <div class="row">
+            <div class="col text-center mt-3 book-bg">
+                <hr class="mb-1">
+                <!--Headers and adds Category name to beginning when they are selected-->
+                <h2 class="headers mb-1">{% for c in sorted_categories %}{{ c.view_name }}{% endfor %} Books
+                </h2>
+                <hr class="mb-1">
+            </div>
+        </div>
+        {%include 'includes/sort.html'%}
+        <div class="container d-flex flex-row flex-wrap gap-3 justify-content-center">
+            <!-- searches through books rendering each one individually as small cards-->
+            {% for book in books %}
+            <div class="card-md mt-3 p-md-1">
+                <div class="card-body book-bg box-shadow p-3">
+                    {% if book.image %}
+                    <a href="" aria-label="View {{ book.title }}">
+                        <img class="card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
+                    </a>
+                    {% else %}
+                    <a href="" aria-label="View {{ book.title }}">
+                        <img class="card-img mb-4 pb-3" src="{{ MEDIA_URL }}no-image.png" alt="{{ book.title }}">
+                    </a>
+                    {% endif %}
+                    <div class="card-body card-title bg-white pb-2  ">
+                        <p class="mb-0 mb-1 pt-2 p-1">{{ book.title }}</p>
+                    </div>
+                    <div class="card-footer bg-white card-details pt-2">
+                        <div class="row">
+                            <div class="col">
+                                <p class="lead mb-0 text-left font-weight-bold">€{{ book.price }}</p>
+                                {% if book.category %}
+                                <p class="small my-2">
+                                    <a class="text-muted"
+                                        href="{% url 'books' %}?category={{ book.category.name }}">
+                                        {{ book.category.view_name }}
+                                    </a>
+                                </p>
+                                {% endif %}
+                                {% if book.rating %}
+                                <small class="text-muted"><i class="fas fa-star mr-1 rating"></i>{{ book.rating }} /
+                                    5</small>
+                                {% else %}
+                                <small class="text-muted">No Rating</small>
+                                {% endif %}
+                                {% if request.user.is_superuser %}
+                                <small class="ml-3 ms-3 ps-4">
+                                    <!--edit button-->
+                                    <a href="" aria-label="Edit {{ book.title }}">Edit</a> |
+                                    <!--delete button-->
+                                    <a class="text-danger" href="" aria-label="delete {{ book.title }}">Delete</a>
+                                </small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!--Post load js-->
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'books/js/books.js' %}"></script>
+{% endblock %}

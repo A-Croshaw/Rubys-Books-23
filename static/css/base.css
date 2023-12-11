@@ -114,11 +114,156 @@ footer a:hover{
     background-color: var(--nav-hover);
 }
 
+/* Generic */
+.line{
+    color: var(--txt-color);
+}
 
+.headers{
+    font-family: var(--headers), sans-serif, Arial;
+    font-weight: 600;
+    font-size: 4rem;
+}
+
+.box-shadow{
+    border-radius: 6px;
+    box-shadow: var(--main-box-shadows);
+}
+
+.qty_input{
+    width: 125px;
+}
+
+input[name='quantity']:hover {
+    box-shadow: var(--btn-quantity-shadow);
+    border: var(--btn-quantity-border);
+}
+
+.btn-cart{
+    border: none;
+    text-decoration: none;
+}
+
+.btn-cart:hover{
+    background-color: var(--nav-hover);
+}
 
 /* home page */
 
+/* Sorting menu */
 
+.sort-btn-arrow{
+    border: none;
+    text-decoration: none;
+}
+
+
+.sort-btn{
+    color: var(--txt-color);
+    border: none;
+    background-color: var(--sort-btn);
+    text-decoration: none;
+}
+
+.sort-btn:hover{
+    color: var(--nav-hover);
+}
+
+.dropsort {
+    display: inline-block;
+    position: relative;
+}
+
+.sort-items {
+    display: none;
+    position:relative;
+    width: 50px;
+    background-color: var(--bg-fade);
+    overflow: auto;
+    border-radius: 6px;
+    box-shadow: var(--main-box-shadows)
+}
+  
+.dropsort:hover .sort-items {
+    display: block;
+}
+
+.sort-items a {
+    display: block;
+    color: var(--txt-color);
+    padding: 2px;
+    text-decoration: none;
+}
+
+.sort-btn-arrow:hover{
+    color: var(--sort-btn-arrow);
+    background-color: var(--nav-hover);
+}
+
+/* All Products */
+
+.book-bg{
+    background-color: var(--bg-color);
+}
+
+a.category > span.badge:hover {
+    background: var(--nav-bar);
+}
+
+.card-img{
+    height: 18rem;
+}
+
+.card-details,
+.card-title,
+.card-img{
+    max-width: 12.5rem;
+}
+
+.card-title{
+    height: 6rem;
+    text-align: center;
+    font-family: var(--txt);
+    font-size: 1.1rem;
+}
+
+.card-details{
+    height: 6.5rem;
+    font-family: var(--txt);
+}
+
+.rating{
+    color: darkorange;
+    padding-right: 5px;
+}
+
+/* Product single view*/
+.view-headers,
+.view-header-2{
+font-family: var(--headers)
+}
+
+.view-headers{
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+.view-header-2{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.view-txt{
+    font-size: 1.1rem;
+    text-align: left;
+    color: var(--txt-color);
+    font-family: var(--txt);
+}
+
+.accordion-button:hover{
+    color: var(--nav-hover);
+    background-color: var(--banners);;
+}
 
 
 /* Media queries*/

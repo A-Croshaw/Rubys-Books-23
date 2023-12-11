@@ -1,0 +1,61 @@
+<!--Sorting buttons-->
+<div class="row d-flex justify-content-center pt-1 book-bg">
+    <p class="view-txt text-center">
+        {{ books|length }} Books{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+    </p>
+    <ul class="nav justify-content-center gap-1 gap-md-4">
+        <li class="nav-item"><p class="sort-txt"><strong>Order by:</strong> </p></li>
+        <li class="nav-item"></li>
+        <li class="nav-item">
+            <div>
+                <a href="{% url 'books' %}" class="sort-btn">Reset</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropsort">
+                <button class="sort-btn">Price</button>
+                <div class="sort-items">
+                    <button id="price-up" value="price_asc" {% if sorted == 'price_asc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-up fa-sm"></i></button>
+                    <button id="price-down" value="price_desc" {% if sorted == 'price_desc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-down fa-sm"></i></button>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropsort">
+                <button class="sort-btn">Rating</button>
+                <div class="sort-items">
+                    <button id="rating-up" value="rating_asc" {% if sorted == 'rating_asc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-up fa-sm"></i></button>
+                    <button id="rating-down" value="rating_desc" {% if sorted == 'rating_desc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-down fa-sm"></i></button>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropsort">
+                <button class="sort-btn">Author</button>
+                <div class="sort-items">
+                    <button id="author-up" value="author_asc" {% if sorted == 'author_asc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-up fa-sm"></i></button>
+                    <button id="author-down" value="author_desc" {% if sorted == 'author_desc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-down fa-sm"></i></button>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropsort">
+                <button class="sort-btn">Title</button>
+                <div class="sort-items">
+                    <button id="title-up" value="title_asc" {% if sorted == 'title_asc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-up fa-sm"></i></button>
+                    <button id="title-down" value="title_desc" {% if sorted == 'title_desc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-down fa-sm"></i></button>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="dropsort">
+                <button class="sort-btn">Category</button>
+                <div class="sort-items">
+                    <button id="category-up" value="category" {% if sorted == 'category_asc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-up fa-sm"></i></button>
+                    <button id="category-down" value="category_desc" {% if sorted == 'category_desc' %}selected{% endif %} class="sort-btn-arrow"><i class="fa-solid fa-arrow-down fa-sm"></i></button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <hr class="mt-1 mb-4 book-bg">
+</div>

@@ -1,0 +1,114 @@
+[
+    {
+        "pk": 1,
+        "model": "books.category",
+        "fields": {
+            "name": "children",
+            "view_name": "Children"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "books.category",
+        "fields": {
+            "name": "teen",
+            "view_name": "Teen"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "books.category",
+        "fields": {
+            "name": "adult",
+            "view_name": "Adult"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "books.category",
+        "fields": {
+            "name": "cooking",
+            "view_name": "Cooking"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "books.category",
+        "fields": {
+            "name": "biographies",
+            "view_name": "Biography"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "books.category",
+        "fields": {
+            "name": "technology",
+            "view_name": "Technology"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "books.category",
+        "fields": {
+            "name": "health",
+            "view_name": "Health"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "books.category",
+        "fields": {
+            "name": "business",
+            "view_name": "Business"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "books.category",
+        "fields": {
+            "name": "home_garden",
+            "view_name": "Home & Garden"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "books.category",
+        "fields": {
+            "name": "science",
+            "view_name": "Science"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "books.category",
+        "fields": {
+            "name": "history",
+            "view_name": "History"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "books.category",
+        "fields": {
+            "name": "music",
+            "view_name": "Music"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "books.category",
+        "fields": {
+            "name": "sports",
+            "view_name": "Sports"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "books.category",
+        "fields": {
+            "name": "poetry",
+            "view_name": "Poetry"
+        }
+    }
+]
