@@ -3,7 +3,7 @@
 {% block title %}Books{% endblock %}
 
 {% block content %}
-<div class="container offset-md-1 text-center  pb-4">
+<div class="container text-center  pb-4">
     <div class="container m-0 p-0 pb-2">
         <div class="row">
             <div class="col text-center mt-3 book-bg">
@@ -21,11 +21,11 @@
             <div class="card-md mt-3 p-md-1">
                 <div class="card-body book-bg box-shadow p-3">
                     {% if book.image %}
-                    <a href="" aria-label="View {{ book.title }}">
+                    <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
                         <img class="card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
                     </a>
                     {% else %}
-                    <a href="" aria-label="View {{ book.title }}">
+                    <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
                         <img class="card-img mb-4 pb-3" src="{{ MEDIA_URL }}no-image.png" alt="{{ book.title }}">
                     </a>
                     {% endif %}

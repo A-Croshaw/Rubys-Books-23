@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Book: {{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="container offset-md-1 text-center">
+    <div class="container-fluid">
+        <div class="card mb-3 mt-3 mt-xl-5 p-3 box-shadow book-bg" style="max-width: 1300px;">
+            <div class="row g-0 ">
+                <div class="row d-flex justify-content-end p-2 m-0">
+                    <!--Link to all books-->
+                    <a href="{% url 'books' %}" class="btn-close" aria-label="return to all books"></a>
+                </div>
+                <div class="col-md-3 ms-md-3">
+                    {% if book.image %}
+                    <!--Link to view picture in new tab-->
+                    <a href="{{ book.image.url }}" target="_blank" aria-label="View image on a new tab">
+                        <img class="card-img-top img-fluid" src="{{ book.image.url }}" alt="{{ book.title }}" >
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
+                    </a>
+                    {% endif %}
+                    <p class="view-txt-price pt-4"><strong>Price: €{{book.price }}</strong></p>
+                </div>
+                <div class="col-md-8 ">
+                    <div class="card-body">
+                        <h2 class="view-headers">{{ book.title }}</h2>
+                        <h3 class="view-header-2">By {{ book.author }}</h3>
+                        <!--Form to update Quantity-->
+                        <form class="form" action="" method="POST">
+                            {% csrf_token %}
+                            <div class="row d-flex justify-content-center">
+                                <div class="container col-sm-5 justify-content-center">
+                                    <p class="mt-3 text-center"><strong>Quantity:</strong></p>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend p-2">
+                                            <button class="take-qty btn-cart"
+                                                data-item_id="{{ book.id }}" id="take-qty_{{ book.id }}" aria-label="remove items">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                            min="1" max="99" data-item_id="{{ book.id }}"
+                                            id="id_qty_{{ book.id }}">
+                                        <div class="input-group-append p-2">
+                                            <button class="add-qty btn-cart"
+                                                data-item_id="{{ book.id }}" id="add-qty_{{ book.id }}" aria-label="Add more items">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container col-sm-5 mt-2 justify-content-center">
+                                    <div class="text-center nav-txt pt-4 mt-1">
+                                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                        <input type="submit" class="btn  text-uppercase" value="Add to cart" aria-label="Add updates to cart">
+                                    </div>
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </div>
+                        </form>
+                        <!--Book Details-->
+                        <div class="accordion accordion-flush box-shadow mt-3" id="bookDetails">
+                            <div class="accordion-item ">
+                                <h2 class="accordion-header ">
+                                    <button class="accordion-button collapsed nav-txt book-bg" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#details" aria-expanded="false" aria-controls="collapseOne" aria-label="View book details">
+                                        Book Details
+                                    </button>
+                                </h2>
+                                <div id="details" class="accordion-collapse collapse"
+                                    data-bs-parent="#bookDetails">
+                                    <div class="accordion-body book-bg">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="view-txt">First Published: {{ book.first_published }}</p>
+                                                <p class="view-txt">This version was
+                                                    Published:{{ book.this_edition }}</p>
+                                                <p class="view-txt">Language: {{ book.language }}</p>
+                                                <p class="view-txt">Number of Pages: {{ book.pages }}</p>
+                                                {% if book.rating %}
+                                                <p class="view-txt text-left"><i
+                                                        class="fas fa-star mr-1 rating"></i>Rating {{ book.rating }}
+                                                    / 5</p>
+                                                {% else %}
+                                                <p class="view-txt">No Rating</p>
+                                                {% endif %}
+                                            </div>
+                                            <div class="col ">
+                                                <p class="view-txt">Category: {{ book.category}}</p>
+                                                <p class="view-txt">SKU: {{ book.sku }}</p>
+                                                <p class="view-txt">ISBN-13: {{ book.ISBN }}</p>
+                                                <p class="view-txt">Condition: {{ book.condtion }}</p>
+                                                <p class="view-txt"><strong>Price: €{{ book.price }}</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed nav-txt book-bg" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#description" aria-expanded="false" aria-controls="collapseTwo" aria-label="View book description">
+                                        Description
+                                    </button>
+                                </h2>
+                                <div id="description" class="accordion-collapse collapse"
+                                    data-bs-parent="#bookDetails">
+                                    <div class="accordion-body book-bg">
+                                        <p class="view-txt">{{ book.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Link to Goodreads.ie -->
+                    <p class="view-txt mx-4 px-2">Click here to see what other people think on
+                        <a href="{{ book.link }}" aria-label="Go to Goodreads" target="_blank">
+                            <strong class="view-txt">Goodreads</strong>.
+                        </a>
+                    </p>
+                </div>
+                {% if request.user.is_superuser %}
+                <div>
+                    <small>
+                        <!--Edit + Delete buttons-->
+                        <a href="" aria-label="Edit {{ book.title }}">Edit</a> |
+                        <a class="text-danger" href=" " aria-label="Delete {{ book.title }}">Delete</a>
+                    </small>
+                </div>
+                {% endif %}
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+<!--Post load js-->
+{% block postloadjs %}
+{{ block.super }}
+{% include 'includes/quantity_script.html' %}
+{% endblock %}

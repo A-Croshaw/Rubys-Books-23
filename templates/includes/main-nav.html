@@ -1,6 +1,6 @@
 <ul class="navbar-nav p-0">
     <!--Logo-->
-    <li class="nav-item d-none d-md-block pb-4">
+    <li class="nav-item d-none d-lg-block">
         <a href="{% url 'home' %}" class="nav-link p-0 nav-txt" aria-label="Return to home page">
             <h1 class="logo">Ruby's</h1>
         </a>
@@ -12,77 +12,77 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}" aria-label="View all products">
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}" aria-label="View all books">
             All Books
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" id="all-books-link" aria-label="View childrens books">
-            Childrens Books
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=children" id="all-books-link" aria-label="View childrens books">
+            Childrens
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View teen books">
-            Teen Books
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=teen" aria-label="View teen books">
+            Teen
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View adult books">
-            Adult Books
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=adult" aria-label="View adult books">
+            Adult
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View cooking books">
-            Cook Books
+        <a class="nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=cooking" aria-label="View cooking books">
+            Cooking
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View biographies books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=biographies" aria-label="View biographies books">
             Biographies
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View technology books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=technology" aria-label="View technology books">
             Technology
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View health books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=health" aria-label="View health books">
             Health
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View business books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=business" aria-label="View business books">
             Business
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View home and garden books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=home_garden" aria-label="View home and garden books">
             Home & Garden
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View science books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=science" aria-label="View science books">
             Science
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View history books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=history" aria-label="View history books">
             History
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View music books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=music" aria-label="View music books">
             Music
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View sport books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=sports" aria-label="View sport books">
             Sport
         </a>
     </li>
     <li class="nav-item">
-        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="" aria-label="View poetry books">
+        <a class=" nav-link nav-txt my-0 ms-md-0 p-0 " href="{% url 'books' %}?category=poetry" aria-label="View poetry books">
             Poetry
         </a>
     </li>
@@ -104,8 +104,8 @@
         <ul class="dropdown-menu border-0">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-            <!--Product management links for admin users-->
-            <a href="" class="dropdown-item" aria-label="View Book managment">Book Management</a>
+            <!--book management links for admin users-->
+            <a href="" class="dropdown-item" aria-label="View book managment">book Management</a>
             {% endif %}
             <!--Profile link-->
             <a href="" class="dropdown-item" aria-label="go to my profile">My Profile</a>

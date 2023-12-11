@@ -260,12 +260,21 @@ font-family: var(--headers)
     font-family: var(--txt);
 }
 
-.accordion-button:hover{
-    color: var(--nav-hover);
-    background-color: var(--banners);;
+.accordion-button:enabled{
+    background-color: var(--btn-color);
+    color: var(--txt-color);
+    box-shadow: var(--main-box-shadows);
 }
 
+.accordion-button:hover{
+    color: var(--nav-hover);
+    background-color: var(--banners);
+    box-shadow: none;
+}
 
+.side-nav{
+    padding: 1rem;
+}
 /* Media queries*/
 
 @media (min-width: 600px) {
@@ -277,25 +286,37 @@ font-family: var(--headers)
     }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 767px) and (min-height:800px){
     .side-nav{
         width: 11rem;
-        padding: 1rem;
-        margin-top: 1rem;
-        position:fixed;
-        
+        position: fixed;
     }
     .main-content{
-        margin-right: 10px;
+        margin-right: 5px;
     }
 
     .sign-up{
         width:600px;
     }
 }
+@media (min-width: 767px){
+  
+}
 
-@media (min-width: 970px) {
+@media (min-width: 1020px) {
     .main-content{
         margin-right: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .side-nav{
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .side-nav{
+        margin-top: 3rem;        
     }
 }
