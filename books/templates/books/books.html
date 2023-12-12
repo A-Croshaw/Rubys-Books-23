@@ -15,55 +15,11 @@
             </div>
         </div>
         {%include 'includes/sort.html'%}
-        <div class="container d-flex flex-row flex-wrap gap-3 justify-content-center">
-            <!-- searches through books rendering each one individually as small cards-->
-            {% for book in books %}
-            <div class="card-md mt-3 p-md-1">
-                <div class="card-body book-bg box-shadow p-3">
-                    {% if book.image %}
-                    <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
-                        <img class="card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
-                    </a>
-                    {% else %}
-                    <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
-                        <img class="card-img mb-4 pb-3" src="{{ MEDIA_URL }}no-image.png" alt="{{ book.title }}">
-                    </a>
-                    {% endif %}
-                    <div class="card-body card-title bg-white pb-2  ">
-                        <p class="mb-0 mb-1 pt-2 p-1">{{ book.title }}</p>
-                    </div>
-                    <div class="card-footer bg-white card-details pt-2">
-                        <div class="row">
-                            <div class="col">
-                                <p class="lead mb-0 text-left font-weight-bold">€{{ book.price }}</p>
-                                {% if book.category %}
-                                <p class="small my-2">
-                                    <a class="text-muted"
-                                        href="{% url 'books' %}?category={{ book.category.name }}">
-                                        {{ book.category.view_name }}
-                                    </a>
-                                </p>
-                                {% endif %}
-                                {% if book.rating %}
-                                <small class="text-muted"><i class="fas fa-star mr-1 rating"></i>{{ book.rating }} /
-                                    5</small>
-                                {% else %}
-                                <small class="text-muted">No Rating</small>
-                                {% endif %}
-                                {% if request.user.is_superuser %}
-                                <small class="ml-3 ms-3 ps-4">
-                                    <!--edit button-->
-                                    <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
-                                    <!--delete button-->
-                                    <a class="text-danger" href="{% url 'book_delete' book.id %}" aria-label="Delete {{ book.title }}">Delete</a>
-                                </small>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+        <div class="container d-none d-md-block">
+            {%include 'includes/books_normal.html'%}
+        </div>
+        <div class="container d-block d-md-none bg-fade">
+            {%include 'includes/books_mobile.html'%}
         </div>
     </div>
 </div>
