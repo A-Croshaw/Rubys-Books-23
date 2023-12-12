@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock %}
+{% block content %}
+<div class="container offset-md-1 text-center bg-fade">
+    <div class="container-fluid pb-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <hr>
+                <h2 class="view-headers mb-4">Shopping Cart</h2>
+                <hr>
+            </div>
+        </div>
+
+        <p class="lead mb-5">Your cart is empty.</p>
+        <a href="{% url 'books' %}" class="btn-keep-shopping">
+            <span class="icon">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

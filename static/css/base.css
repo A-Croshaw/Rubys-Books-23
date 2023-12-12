@@ -234,8 +234,8 @@ a.category > span.badge:hover {
 }
 
 .mob-img-all{
-    height: 7.25rem;
-    width: 5.5rem;
+    height: 7rem;
+    width: 5rem;
 }
 
 .card-details,
@@ -395,6 +395,19 @@ font-family: var(--headers)
     border: var(--btn-border-2);
     color: var(--txt-color);
 }
+
+/* Shopping Cart */
+
+.btn-keep-shopping{
+    border: var(--btn-border-2);
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    font-family: var(--txt);
+    padding: 5px;
+    font-size: 2rem;
+
+}
+
 /* Media queries*/
 
 @media (min-width: 600px) {
