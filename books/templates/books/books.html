@@ -53,9 +53,9 @@
                                 {% if request.user.is_superuser %}
                                 <small class="ml-3 ms-3 ps-4">
                                     <!--edit button-->
-                                    <a href="" aria-label="Edit {{ book.title }}">Edit</a> |
+                                    <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
                                     <!--delete button-->
-                                    <a class="text-danger" href="" aria-label="delete {{ book.title }}">Delete</a>
+                                    <a class="text-danger" href="{% url 'book_delete' book.id %}" aria-label="Delete {{ book.title }}">Delete</a>
                                 </small>
                                 {% endif %}
                             </div>

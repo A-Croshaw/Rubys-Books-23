@@ -131,8 +131,8 @@
                 <div>
                     <small>
                         <!--Edit + Delete buttons-->
-                        <a href="" aria-label="Edit {{ book.title }}">Edit</a> |
-                        <a class="text-danger" href=" " aria-label="Delete {{ book.title }}">Delete</a>
+                        <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
+                        <a class="text-danger" href="{% url 'book_delete' book.id %}" aria-label="Delete {{ book.title }}">Delete</a>
                     </small>
                 </div>
                 {% endif %}

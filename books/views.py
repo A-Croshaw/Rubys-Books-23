@@ -67,3 +67,71 @@ def book_view(request, book_id):
     }
 
     return render(request, 'books/book_view.html', context)
+
+
+@login_required
+def add_book(request):
+    """ Adding books to the store admin users only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Admin users only.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            book = form.save()
+            messages.success(request, 'The Book was successfully added')
+            return redirect(reverse('book_view', args=[book.id]))
+        else:
+            messages.error(request, 'failed to add the book. Please ensure the details are correct and all fields that are required are entered.')
+    else:
+        form = BookForm()
+        
+    template = 'books/add_book.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_book(request, book_id):
+    """ Edit a book in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Admin users only.')
+        return redirect(reverse('home'))
+
+    book = get_object_or_404(Book, pk=book_id)
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES, instance=book)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'book was successfully updated!')
+            return redirect(reverse('book_view', args=[book.id]))
+        else:
+            messages.error(request, 'Updating book failed. Please ensure the details are valid.')
+    else:
+        form = BookForm(instance=book)
+        messages.info(request, f'Editing of {book.title}')
+
+    template = 'books/edit_book.html'
+    context = {
+        'form': form,
+        'book': book,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def book_delete(request, book_id):
+    """ Delete Book from Store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Admin users only.')
+        return redirect(reverse('home'))
+
+    book = get_object_or_404(Book, pk=book_id)
+    book.delete()
+    messages.success(request, 'Book has been delete successfully!')
+    return redirect(reverse('books'))

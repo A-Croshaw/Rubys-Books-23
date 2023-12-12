@@ -95,6 +95,9 @@ body{
 
 }
 
+.side-nav{
+    padding: 1rem;
+}
 
 /* footer */
 
@@ -147,7 +150,19 @@ input[name='quantity']:hover {
 .btn-cart:hover{
     background-color: var(--nav-hover);
 }
+.btn-cancel{
+    border: var(--btn-border-2);
+    background-color: var(--btn-color);
+    font-family: var(--txt);
+    text-decoration: none;
+    color: var(--nav-txt);
+    padding: 3px;
+}
 
+.btn-cancel:hover{
+    border: var(--btn-border-1);
+    color: var(--nav-txt);
+}
 /* home page */
 
 /* Sorting menu */
@@ -212,11 +227,11 @@ a.category > span.badge:hover {
 
 .card-img{
     height: 18rem;
+    width: 12.5rem;
 }
 
 .card-details,
-.card-title,
-.card-img{
+.card-title{
     max-width: 12.5rem;
 }
 
@@ -272,9 +287,51 @@ font-family: var(--headers)
     box-shadow: none;
 }
 
-.side-nav{
-    padding: 1rem;
+
+/* Product Form */
+.btn-add-update{
+    border: var(--btn-border-1);
+    background-color: var(--btn-color);
+    font-family: var(--txt);
 }
+
+.book-form-txt{
+    font-family: var(--txt);
+    font-size: 1.25rem;
+}
+
+.btn-add-update:hover{
+    border: var(--btn-border-2);
+}
+
+.bg-form{
+    background-color: var(--bg-color);
+    box-shadow: var(--main-box-shadows);
+}
+
+.btn-select {
+    position: relative;
+    overflow: hidden;
+    font-family: var(--txt);
+    font-size: 1rem;
+}
+
+.btn-select input{
+    background-color:var(--bg-fade);
+    width: 100%;
+    min-height: 100%;
+}
+
+.btn-select input:hover{
+    box-shadow: var(--btn-quantity-shadow);
+    border: var(--btn-quantity-border);
+}
+
+.edit-header{
+    font-size: 2rem;
+    font-family: var(--headers);
+}
+
 /* Media queries*/
 
 @media (min-width: 600px) {
