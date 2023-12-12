@@ -105,7 +105,7 @@
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
             <!--book management links for admin users-->
-            <a href="" class="dropdown-item" aria-label="View book managment">book Management</a>
+            <a href="{% url 'book_management' %}" class="dropdown-item" aria-label="View book managment">book Management</a>
             {% endif %}
             <!--Profile link-->
             <a href="" class="dropdown-item" aria-label="go to my profile">My Profile</a>

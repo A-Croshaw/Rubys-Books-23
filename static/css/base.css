@@ -118,6 +118,7 @@ footer a:hover{
 }
 
 /* Generic */
+
 .line{
     color: var(--txt-color);
 }
@@ -150,6 +151,7 @@ input[name='quantity']:hover {
 .btn-cart:hover{
     background-color: var(--nav-hover);
 }
+
 .btn-cancel{
     border: var(--btn-border-2);
     background-color: var(--btn-color);
@@ -163,6 +165,7 @@ input[name='quantity']:hover {
     border: var(--btn-border-1);
     color: var(--nav-txt);
 }
+
 /* home page */
 
 /* Sorting menu */
@@ -226,8 +229,8 @@ a.category > span.badge:hover {
 }
 
 .card-img{
-    height: 18rem;
-    width: 12.5rem;
+    height: 8rem;
+    width: 5.5rem;
 }
 
 .card-details,
@@ -253,6 +256,12 @@ a.category > span.badge:hover {
 }
 
 /* Product single view*/
+
+.single-img{
+    max-width: 10rem;
+    max-height: 14rem;
+}
+
 .view-headers,
 .view-header-2{
 font-family: var(--headers)
@@ -289,6 +298,7 @@ font-family: var(--headers)
 
 
 /* Product Form */
+
 .btn-add-update{
     border: var(--btn-border-1);
     background-color: var(--btn-color);
@@ -332,14 +342,62 @@ font-family: var(--headers)
     font-family: var(--headers);
 }
 
+/* Book Management */
+
+.manage-img{
+    width: 2.5rem;
+    height: 4rem;
+}
+
+.manage-txt{
+    font-family: var(--txt);
+    color:var(--txt-color);
+}
+
+.manage-header{
+    font-size: 4rem;
+    font-family: var(--headers);
+}
+
+.manage-header-2{
+    font-size: 2.5rem;
+    font-family: var(--headers);
+}
+
+.book-list{
+    max-height: 600px;
+    overflow-y: scroll;
+    scrollbar-color: #ff0000;
+}
+
+.btn-add{
+    border: var(--btn-border-1);
+    color: var(--txt-color);
+    background-color: var(--btn-color);
+    font-family: var(--txt);
+    font-size: 1.5rem;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.btn-add:hover{
+    border: var(--btn-border-2);
+    color: var(--txt-color);
+}
 /* Media queries*/
 
 @media (min-width: 600px) {
     .login{
         width: 400px;
     }
+
     .email-Verify  {
         width: 600px;
+    }
+
+    .card-img{
+        height: 18rem;
+        width: 12.5rem;
     }
 }
 
@@ -348,21 +406,14 @@ font-family: var(--headers)
         width: 11rem;
         position: fixed;
     }
-    .main-content{
-        margin-right: 5px;
-    }
 
     .sign-up{
         width:600px;
     }
-}
-@media (min-width: 767px){
-  
-}
 
-@media (min-width: 1020px) {
-    .main-content{
-        margin-right: auto;
+    .single-img{
+        width: auto;
+        height: auto;
     }
 }
 
@@ -377,3 +428,4 @@ font-family: var(--headers)
         margin-top: 3rem;        
     }
 }
+

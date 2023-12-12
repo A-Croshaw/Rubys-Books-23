@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<div class="container bg-fade rounded text-center pb-4 offset-md-1">
+    <div class="container-fluid pb-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col text-center">
+                <hr class="mb-1">
+                <h2 class="manage-header my-3 pb-3">Book Management</h2>
+                <hr class="mb-1">
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+                <h2 class="manage-header-2 text-center pt-3">Book list</h2>
+            </div>
+            <div class="col-12 col-md-8 d-flex justify-content-center justify-content-md-end mb-2">
+                <div class="container rounded pt-2 pb-3 my-2 bg-fade box-shadow">
+                    <!--Search Bar For Mobile View-->
+                    <form method="GET" action="">
+                        <div class="input-group">
+                            <input class="form-control rounded " type="text" name="q" placeholder="Search Books / Search with no input to rest">
+                            <div>
+                                <button class="form-control btn nav-txt" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center m-0 p-0">
+            <div class="col-12 col-lg-8 order-last order-lg-first book-list box-shadow p-3">
+            {% for book in books %}
+                <div class="container-fluid row text-center">
+                    <div class="col-2 col-sm-1 p-0 m-0 ">
+                        {% if book.image %}
+                        <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
+                            <img class="manage-img" src="{{ book.image.url }}" alt="{{ book.title }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
+                            <img class="manage-img mb-4 pb-3" src="{{ MEDIA_URL }}no-image.png" alt="{{ book.title }}">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-10 col-sm-5 py-0 px-2 m-0">
+                        <p class="manage-txt">Title: {{ book.title }}</p>
+                    </div>
+                    <div class="col-8 col-sm-4 py-0 px-2 m-0">
+                        <p class="manage-txt">Author: {{ book.author }}</p>
+                    </div>
+                    <div class="col-4 col-sm-2 py-0 px-2 m-0">
+                        <small>
+                            <!--edit button-->
+                            <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
+                            <!--delete button-->
+                            <a class="text-danger" href="{% url 'book_delete' book.id %}"
+                                aria-label="Delete {{ book.title }}">Delete</a>
+                        </small>
+                    </div>
+                    <hr>
+                </div>
+            {% endfor %}
+            </div>
+            <div class=" col-12 col-lg-4 order-first order-lg-last">
+                <div class="row p-2 mt-lg-2 ms-lg-1">
+                    <div>
+                        <a class="btn-add" href="{% url 'add_book' %}" aria-label="Add a new book">Add A New Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!--Post load js-->
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'books/js/books.js' %}"></script>
+{% endblock %}

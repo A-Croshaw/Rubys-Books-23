@@ -9,17 +9,17 @@
             <div class="row g-0 ">
                 <div class="row d-flex justify-content-end p-2 m-0">
                     <!--Link to all books-->
-                    <a href="{% url 'books' %}" class="btn-close" aria-label="return to all books"></a>
+                    <a href="{% url 'books' %}" class="btn-close " aria-label="return to all books"></a>
                 </div>
                 <div class="col-md-3 ms-md-3">
                     {% if book.image %}
                     <!--Link to view picture in new tab-->
                     <a href="{{ book.image.url }}" target="_blank" aria-label="View image on a new tab">
-                        <img class="card-img-top img-fluid" src="{{ book.image.url }}" alt="{{ book.title }}" >
+                        <img class="card-img-top img-fluid single-img" src="{{ book.image.url }}" alt="{{ book.title }}" >
                     </a>
                     {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
+                        <img class="card-img-top img-fluid single-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
                     </a>
                     {% endif %}
                     <p class="view-txt-price pt-4"><strong>Price: €{{book.price }}</strong></p>

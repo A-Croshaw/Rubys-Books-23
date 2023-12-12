@@ -70,6 +70,30 @@ def book_view(request, book_id):
 
 
 @login_required
+def book_management(request):
+    """
+    A view for book management for admin users
+    """
+    books = Book.objects.all()
+    query = None
+
+    if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "No Books with that criteria")
+            
+            queries = Q(title__icontains=query) | Q(description__icontains=query)
+            books = books.filter(queries)
+
+    context = {
+        'books': books,
+        'search_term': query,
+    }
+
+    return render(request, 'books/book-management.html', context)
+
+
+@login_required
 def add_book(request):
     """ Adding books to the store admin users only """
     if not request.user.is_superuser:

@@ -33,7 +33,7 @@
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                         <!--Product management links for admin users-->
-                        <a href="" class="dropdown-item" aria-label="View Book management">Book Management</a>
+                        <a href="{% url 'book_management' %}" class="dropdown-item" aria-label="View Book management">Book Management</a>
                         {% endif %}
                         <!--Profile link-->
                         <a href="" class="dropdown-item" aria-label="View profile">My Profile</a>
