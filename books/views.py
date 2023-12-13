@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Book, Category
 from .forms import BookForm
 
+
 def all_books(request):
     """
     A view to render all books with sorting and searching

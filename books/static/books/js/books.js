@@ -25,4 +25,3 @@ function ordered() {
         window.location.replace(thisUrl);
     }
 };
-

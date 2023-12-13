@@ -8,6 +8,7 @@ def shopping_cart(request):
 
     return render(request, 'cart/cart.html')
 
+
 def add_to_cart(request, item_id):
     """ Adding books to shopping cart with quantities"""
     book = get_object_or_404(Book, pk=item_id)

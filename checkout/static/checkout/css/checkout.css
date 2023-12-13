@@ -1,24 +1,24 @@
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: 0px;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
 
 .stripe-style-input::placeholder {
@@ -47,8 +47,8 @@ select option[value=""] {
 }
 
 #loading-overlay {
-	display: none;
-	position: fixed;
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -58,37 +58,38 @@ select option[value=""] {
 }
 
 .loading-spinner {
-	display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     height: 100%;
 }
 
-.thank-you-txt{
+.thank-you-txt {
     font-family: var(--txt);
     color: #000;
 }
 
 
-.thank-you-box{
+.thank-you-box {
     max-width: 600px;
 }
 
-.thank-you-txt{
+.thank-you-txt {
     font-size: 1rem;
-    text-align:center;
+    text-align: center;
 }
-.thank-you-order{
+
+.thank-you-order {
     font-size: 1.2rem;
 }
 
-.checkout-img{
+.checkout-img {
     height: 140px;
     width: 100px;
 }
 
-.checkout-txt{
+.checkout-txt {
     font-size: 1rem;
     text-align: left;
 }

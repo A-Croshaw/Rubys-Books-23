@@ -12,11 +12,11 @@
         <div class="text-center nav-txt">
             <div><i class="fas fa-shopping-bag fa-md"></i></div>
             <p class="my-0">
-            {% if overal_total %}
+                {% if overal_total %}
                 €{{ overal_total|floatformat:2 }}
-            {% else %}
+                {% else %}
                 €0.00
-            {% endif %}
+                {% endif %}
             </p>
         </div>
     </a>

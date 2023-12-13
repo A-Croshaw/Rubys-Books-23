@@ -22,6 +22,7 @@ class BookAdmin(admin.ModelAdmin):
         'rating',
     )
     
+    
 class CategoryAdmin(admin.ModelAdmin):
     """
     Creates Admin For The Catergorys

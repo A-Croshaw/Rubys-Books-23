@@ -6,7 +6,7 @@
 {% block title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="container text-center bg-fade mt-5 py-3">
+<div class="container text-center bg-fade mt-5 py-3 rounded">
   <h1 class="account-login mb-4">{% trans "Sign In" %}</h1>
 
 
@@ -20,8 +20,8 @@
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
       <div class="d-flex justify-content-center gap-4">
-        <button class="btn btn-account" type="submit">{% trans "Sign In" %}</button>
-        <a class="btn btn-sign-up" href="{{ signup_url }}">{% trans "Sign Up" %}</a>
+        <button class="btn btn-account rounded" type="submit">{% trans "Sign In" %}</button>
+        <a class="btn btn-sign-up rounded" href="{{ signup_url }}">{% trans "Sign Up" %}</a>
       </div>
     </form>
   </div>

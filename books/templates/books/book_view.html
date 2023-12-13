@@ -3,7 +3,7 @@
 {% block title %}Book: {{ book.title }}{% endblock %}
 
 {% block content %}
-<div class="container text-center">
+<div class="container text-center mb-5 ">
     <div class="container-fluid">
         <div class="card mb-3 mt-3 mt-xl-5 p-3 box-shadow book-bg" style="max-width: 1300px;">
             <div class="row g-0 ">
@@ -15,18 +15,22 @@
                     {% if book.image %}
                     <!--Link to view picture in new tab-->
                     <a href="{{ book.image.url }}" target="_blank" aria-label="View image on a new tab">
-                        <img class="card-img-top img-fluid single-img" src="{{ book.image.url }}" alt="{{ book.title }}" >
+                        <img class="card-img-top img-fluid single-img" src="{{ book.image.url }}"
+                            alt="{{ book.title }}">
                     </a>
                     {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid single-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
+                        <img class="card-img-top img-fluid single-img" src="{{ MEDIA_URL }}noimage.png"
+                            alt="{{ book.title }}">
                     </a>
                     {% endif %}
                     <p class="view-txt-price pt-4"><strong>Price: €{{book.price }}</strong></p>
                 </div>
                 <div class="col-md-8 ">
                     <div class="card-body">
-                        <h2 class="view-headers">{{ book.title }} {{ item.book.title }} {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</h2>
+                        <h2 class="view-headers">{{ book.title }} {{ item.book.title }}
+                            {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat"
+                                style="color: #fa0000;"></i>{%endif%}</h2>
                         <h3 class="view-header-2">By {{ book.author }}</h3>
                         <!--Form to update Quantity-->
                         <form class="form" action="{% url 'add_to_cart' book.id %}" method="POST">
@@ -36,19 +40,18 @@
                                     <p class="mt-3 text-center"><strong>Quantity:</strong></p>
                                     <div class="input-group">
                                         <div class="input-group-prepend p-2">
-                                            <button class="take-qty btn-cart"
-                                                data-item_id="{{ book.id }}" id="take-qty_{{ book.id }}" aria-label="remove items">
+                                            <button class="take-qty btn-cart" data-item_id="{{ book.id }}"
+                                                id="take-qty_{{ book.id }}" aria-label="remove items">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
                                         <input class="form-control qty_input" type="number" name="quantity" value="1"
-                                            min="1" max="99" data-item_id="{{ book.id }}"
-                                            id="id_qty_{{ book.id }}">
+                                            min="1" max="99" data-item_id="{{ book.id }}" id="id_qty_{{ book.id }}">
                                         <div class="input-group-append p-2">
-                                            <button class="add-qty btn-cart"
-                                                data-item_id="{{ book.id }}" id="add-qty_{{ book.id }}" aria-label="Add more items">
+                                            <button class="add-qty btn-cart" data-item_id="{{ book.id }}"
+                                                id="add-qty_{{ book.id }}" aria-label="Add more items">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
                                                 </span>
@@ -59,7 +62,8 @@
                                 <div class="container col-sm-5 mt-2 justify-content-center">
                                     <div class="text-center nav-txt pt-4 mt-1">
                                         <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                        <input type="submit" class="btn  text-uppercase" value="Add to cart" aria-label="Add updates to cart">
+                                        <input type="submit" class="btn  text-uppercase" value="Add to cart"
+                                            aria-label="Add updates to cart">
                                     </div>
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -69,13 +73,13 @@
                         <div class="accordion accordion-flush box-shadow mt-3" id="bookDetails">
                             <div class="accordion-item ">
                                 <h2 class="accordion-header ">
-                                    <button class="accordion-button collapsed nav-txt book-bg" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#details" aria-expanded="false" aria-controls="collapseOne" aria-label="View book details">
+                                    <button class="accordion-button collapsed nav-txt book-bg" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#details" aria-expanded="false"
+                                        aria-controls="collapseOne" aria-label="View book details">
                                         Book Details
                                     </button>
                                 </h2>
-                                <div id="details" class="accordion-collapse collapse"
-                                    data-bs-parent="#bookDetails">
+                                <div id="details" class="accordion-collapse collapse" data-bs-parent="#bookDetails">
                                     <div class="accordion-body book-bg">
                                         <div class="row">
                                             <div class="col">
@@ -105,19 +109,18 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed nav-txt book-bg" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#description" aria-expanded="false" aria-controls="collapseTwo" aria-label="View book description">
+                                    <button class="accordion-button collapsed nav-txt book-bg" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#description" aria-expanded="false"
+                                        aria-controls="collapseTwo" aria-label="View book description">
                                         Description
                                     </button>
                                 </h2>
-                                <div id="description" class="accordion-collapse collapse"
-                                    data-bs-parent="#bookDetails">
+                                <div id="description" class="accordion-collapse collapse" data-bs-parent="#bookDetails">
                                     <div class="accordion-body book-bg">
                                         <p class="view-txt">{{ book.description }}</p>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!--Link to Goodreads.ie -->
@@ -132,11 +135,13 @@
                     <small>
                         <!--Edit + Delete buttons-->
                         <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
-                        <a class="text-danger" href="{% url 'book_delete' book.id %}" aria-label="Delete {{ book.title }}">Delete</a>
+                        <a class="text-danger" href="{% url 'book_delete' book.id %}"
+                            aria-label="Delete {{ book.title }}">Delete</a>
                     </small>
                 </div>
                 {% endif %}
             </div>
+        </div>
     </div>
 </div>
 {% endblock %}

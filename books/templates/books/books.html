@@ -3,24 +3,24 @@
 {% block title %}Books{% endblock %}
 
 {% block content %}
-    <div class="container-fluid m-0 p-0 pb-2">
-        <div class="row">
-            <div class="col text-center mt-3 book-bg">
-                <hr class="mb-1">
-                <!--Headers and adds Category name to beginning when they are selected-->
-                <h2 class="headers mb-1">{% for c in sorted_categories %}{{ c.view_name }}{% endfor %} Books
-                </h2>
-                <hr class="mb-1">
-            </div>
+<div class="container-fluid m-0 p-0 pb-2">
+    <div class="row">
+        <div class="col text-center mt-3 book-bg">
+            <hr class="mb-1">
+            <!--Headers and adds Category name to beginning when they are selected-->
+            <h2 class="headers mb-1">{% for c in sorted_categories %}{{ c.view_name }}{% endfor %} Books
+            </h2>
+            <hr class="mb-1">
         </div>
-        {%include 'includes/sort.html'%}
-        <div class="d-none d-sm-block">
-            {%include 'includes/books_normal.html'%}
-        </div>
-        <div class="d-block d-sm-none bg-fade">
-            {%include 'includes/books_mobile.html'%}
-        </div>
-    </div>w
+    </div>
+    {%include 'includes/sort.html'%}
+    <div class="d-none d-sm-block mt-3">
+        {%include 'includes/books_normal.html'%}
+    </div>
+    <div class="d-block d-sm-none">
+        {%include 'includes/books_mobile.html'%}
+    </div>
+</div>w
 {% endblock %}
 
 <!--Post load js-->

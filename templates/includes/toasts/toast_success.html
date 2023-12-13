@@ -1,11 +1,12 @@
 {% load calc_tool%}
 <div class="p-2 toast-bg box-shadow" id="my-alert">
-    <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert"
+        aria-label="Close"></button>
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
     <div class="row">
         <div class="col">
-                <p class="toast-top-txt toast-top-success"> {{ message }}</p>
+            <p class="toast-top-txt toast-top-success"> {{ message }}</p>
             <hr class="mt-1 mb-3">
         </div>
     </div>
@@ -18,9 +19,9 @@
             <div class="row bg-white">
                 <div class="col-4 pt-3 ps-3 justify-content-center" style="max-width: 5rem;">
                     {% if item.book.image %}
-                        <img class="img-fluid rounded"  src="{{ item.book.image.url }}" alt="{{ book.title }}">
+                    <img class="img-fluid rounded" src="{{ item.book.image.url }}" alt="{{ book.title }}">
                     {% else %}
-                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
+                    <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
                     {% endif %}
                 </div>
                 <div class="col-8 ">
@@ -31,11 +32,11 @@
                             <p class="toast-txt"><strong>Price: €{{ item.book.price }}</strong></p>
                             <p class="toast-txt"><strong>Qty: {{ item.quantity }}</strong></p>
                             <p class="toast-txt">
-                                <strong>Sub Total: 
+                                <strong>Sub Total:
                                     {% if item.book.condition == 'used' %}
-                                        €{{ item.price_used | calc_subtotal_used:item.quantity }}
+                                    €{{ item.price_used | calc_subtotal_used:item.quantity }}
                                     {% else %}
-                                        €{{ item.book.price | calc_subtotal:item.quantity }}
+                                    €{{ item.book.price | calc_subtotal:item.quantity }}
                                     {% endif %}
                                 </strong>
                             </p>
@@ -49,14 +50,16 @@
     <hr class="mt-1">
     <div class="row">
         <div class="col text-center">
-            <strong><p class="mb-1">
-                Total{% if free_delivery_difference > 0 %} (Exc. delivery){% endif %}: 
-                <span class="float-right">€{{ total|floatformat:2 }}</span>
-            </p></strong>
-            {% if free_delivery_difference > 0 %}
-                <p class="mb-2 p-2  bg-warning text-center">
-                    Spend <strong>${{ free_delivery_difference }}</strong> more To qualify for free delivery
+            <strong>
+                <p class="mb-1">
+                    Total{% if free_delivery_difference > 0 %} (Exc. delivery){% endif %}:
+                    <span class="float-right">€{{ total|floatformat:2 }}</span>
                 </p>
+            </strong>
+            {% if free_delivery_difference > 0 %}
+            <p class="mb-2 p-2  bg-warning text-center">
+                Spend <strong>${{ free_delivery_difference }}</strong> more To qualify for free delivery
+            </p>
             {% endif %}
             <a href="{% url 'checkout' %}" class="nav-link nav-txt">
                 <span class="text-uppercase">Secure Checkout</span>

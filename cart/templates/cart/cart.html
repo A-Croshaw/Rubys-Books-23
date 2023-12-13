@@ -35,11 +35,13 @@
                         <div class="col-md-3 ms-md-3 pt-3">
                             {% if item.book.image %}
                             <a href="{% url 'book_view' item.book.id %}">
-                                <img class="img-fluid rounded" style="max-width: 130px;" src="{{ item.book.image.url }}" alt="{{ item.book.title }}">
+                                <img class="img-fluid rounded" style="max-width: 130px;" src="{{ item.book.image.url }}"
+                                    alt="{{ item.book.title }}">
                             </a>
                             {% else %}
                             <a href="{% url 'book_view' item.book.id %}">
-                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.book.title }}">
+                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ item.book.title }}">
                             </a>
                             {% endif %}
                             <p class="cart-txt-price pt-2"><strong>Price: €{{ item.book.price }}</strong></p>
@@ -47,7 +49,9 @@
                         <div class="col-md-8 ">
                             <div class="card-body">
                                 <div class="row">
-                                    <h2 class="cart-headers">{{ item.book.title }} {%if item.book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</h2>
+                                    <h2 class="cart-headers">{{ item.book.title }}
+                                        {%if item.book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat"
+                                            style="color: #fa0000;"></i>{%endif%}</h2>
                                     <h3 class="cart-header-2">By {{ item.book.author }}</h3>
                                 </div>
                                 <hr>
@@ -78,16 +82,18 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-dark pt-2 ms-4" id="qty-update"><small>Update</small></a>
-                                        <a class="remove-item text-danger pt-2 ms-2" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="update-link text-dark pt-2 ms-4"
+                                            id="qty-update"><small>Update</small></a>
+                                        <a class="remove-item text-danger pt-2 ms-2" id="remove_{{ item.item_id }}"
+                                            data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </div>
                                     <div class="d-flex col-12 justify-content-center pt-2">
                                         <p class="cart-txt pt-2">
-                                            <strong>Sub Total: 
+                                            <strong>Sub Total:
                                                 {% if item.book.condition == 'used' %}
-                                                    €{{ item.price_used | calc_subtotal_used:item.quantity }}
+                                                €{{ item.price_used | calc_subtotal_used:item.quantity }}
                                                 {% else %}
-                                                    €{{ item.book.price | calc_subtotal:item.quantity }}
+                                                €{{ item.book.price | calc_subtotal:item.quantity }}
                                                 {% endif %}
                                             </strong></p>
                                     </div>
@@ -107,8 +113,8 @@
                                             <div class="accordion-body">
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
-                                                        <p class="cart-txt">Category:  {{ item.book.category}}</p>
-                                                        <p class="cart-txt">Condition:  {{ item.book.condition }}</p>
+                                                        <p class="cart-txt">Category: {{ item.book.category}}</p>
+                                                        <p class="cart-txt">Condition: {{ item.book.condition }}</p>
                                                     </div>
                                                     <div class="col-12 col-md-6">
                                                         <p class="cart-txt">SKU: {{ item.book.sku|upper }}</p>
@@ -127,8 +133,7 @@
             </div>
             <div class=" col-12 col-lg-4 order-first p-3 order-lg-last">
                 <div class="row p-2 mt-lg-2 box-shadow ms-lg-1">
-
-                    <h3 class="cart-totals pt-4">Number of items in Cart :  {{ item_count }}</h3>
+                    <h3 class="cart-totals pt-4">Number of items in Cart : {{ item_count }}</h3>
                     <h3 class="cart-totals pt-4"><strong>Cart Total : €{{ total|floatformat:2 }}</strong></h3>
                     <h3 class="cart-totals pt-4">Delivery : €{{ delivery|floatformat:2 }}</h3>
                     {% if free_delivery_difference > 0 %}
@@ -136,8 +141,8 @@
                         Spend <strong>${{ free_delivery_difference }}</strong> more To qualify for free delivery
                     </p>
                     {% endif %}
-                    <h4 class="cart-grand-total mt-4"><strong>Final Price Total: €{{ overal_total|floatformat:2 }}</strong></h4>
-
+                    <h4 class="cart-grand-total mt-4"><strong>Final Price Total:
+                            €{{ overal_total|floatformat:2 }}</strong></h4>
                     <a href="{% url 'checkout' %}" class="btn btn-account ">
                         <span class="text-uppercase">Secure Checkout</span>
                         <span class="icon">

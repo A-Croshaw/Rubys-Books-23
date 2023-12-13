@@ -2,17 +2,15 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
 from .models import Order, OrderLineTotal
-
 from books.models import Book
 from profiles.models import Profile
 from profiles.forms import ProfileForm
 from cart.contexts import shopping_items
-
 import stripe
 import json
+
 
 @require_POST
 def cache_data_checkout(request):
@@ -29,8 +27,6 @@ def cache_data_checkout(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
-
-
 
 
 def checkout(request):

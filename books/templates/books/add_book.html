@@ -3,7 +3,7 @@
 {% block title %}Add Book{% endblock %}
 {% block content %}
 <div class="container mb-5 text-center">
-    <div class="container-fluid bg-fade">
+    <div class="container-fluid bg-fade rounded">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <hr>
@@ -12,33 +12,34 @@
             </div>
         </div>
         <div class="row justify-content-center pb-5">
-            <div class="col-12 col-md-6 bg-form p-5">
-            <form method="POST" action="{% url 'add_book'%}" class="form mb-2 book-form-txt" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
+            <div class="col-12 col-md-6 bg-form rounded p-5">
+                <form method="POST" action="{% url 'add_book'%}" class="form mb-2 book-form-txt"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
                     {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
+                    {{ field | as_crispy_field }}
                     {% else %}
-                        {{ field }}
+                    {{ field }}
                     {% endif %}
-                {% endfor %}
-                <div class="d-flex justify-content-center gap-4">
-                    <a class="btn-cancel" href="{% url 'books' %}">Cancel</a>
-                    <button class="btn-add-update" type="submit">Add Book</button>
-                </div>
-            </form> 
-            </div>       
+                    {% endfor %}
+                    <div class="d-flex justify-content-center gap-4">
+                        <a class="btn-cancel rounded" href="{% url 'books' %}">Cancel</a>
+                        <button class="btn-add-update rounded" type="submit">Add Book</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#image').change(function() {
-            var file = $('#image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
+{{ block.super }}
+<script type="text/javascript">
+    $('#image').change(function () {
+        var file = $('#image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+</script>
 {% endblock %}
