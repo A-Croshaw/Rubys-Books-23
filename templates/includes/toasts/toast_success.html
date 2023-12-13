@@ -9,7 +9,7 @@
             <hr class="mt-1 mb-3">
         </div>
     </div>
-    {% if overal_total and not on_profile_page %}
+    {% if overal_total and not profile_page %}
     <p class="toast-top-txt text-center">Your Bag has {{ item_count }} items</p>
     <hr class="mt-1 mb-3">
     <div class="overflow-scroll toast-item-list">
@@ -58,7 +58,7 @@
                     Spend <strong>${{ free_delivery_difference }}</strong> more To qualify for free delivery
                 </p>
             {% endif %}
-            <a href="" class="nav-link nav-txt">
+            <a href="{% url 'checkout' %}" class="nav-link nav-txt">
                 <span class="text-uppercase">Secure Checkout</span>
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </a>

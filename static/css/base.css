@@ -615,6 +615,42 @@ font-family: var(--headers)
     text-decoration: none;
 }
 
+/* profile */
+
+.update-details{
+    max-width: 500px;
+}
+
+.update-header{
+    font-family: var(--txt);
+    font-size: 1.15rem;
+    color: var(--txt-color);
+}
+
+.update-txt{
+    font-family: var(--txt);
+    font-size: 1rem;
+    color: var(--txt-color);
+    text-align: left;
+}
+
+.update-btn{
+    border: var(--btn-border-1);
+    font-family: var(--txt);
+    color: var(--txt-color);
+    background-color: var(--btn-color);
+    max-width: fit-content;
+    padding: 5px 10px;
+}
+
+.update-btn:hover{
+    border: var(--btn-border-2);
+}
+
+.order-table{
+    max-width: 850px;
+}
+
 /* Media queries*/
 
 @media (min-width: 600px) {

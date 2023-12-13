@@ -35,6 +35,7 @@
 
     <script src="{% static 'js/script.js' %}"></script>
     <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
 
 
     {% endblock %}
@@ -85,7 +86,7 @@
             {% include 'includes/main-nav.html' %}
         </div>
         <!--Main Content-->
-        <div class="container col-md-11 d-md-flex offset-md-2 offset-xl-1 pb-2">
+        <div class="container col-md-11 d-md-flex offset-md-1 offset-xl-1 pb-2">
                 {% block content %}
                 {% endblock %}
         </div>

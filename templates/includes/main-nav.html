@@ -108,7 +108,7 @@
             <a href="{% url 'book_management' %}" class="dropdown-item" aria-label="View book managment">book Management</a>
             {% endif %}
             <!--Profile link-->
-            <a href="" class="dropdown-item" aria-label="go to my profile">My Profile</a>
+            <a href="{% url 'profile' %}" class="dropdown-item" aria-label="go to my profile">My Profile</a>
             <!--Account links-->
             <li><a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="logout">Logout</a></li>
             {% else %}
