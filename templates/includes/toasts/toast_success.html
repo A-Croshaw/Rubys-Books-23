@@ -30,7 +30,15 @@
                             <h6 class="toast-header-2">By {{ item.book.author }}</h6>
                             <p class="toast-txt"><strong>Price: €{{ item.book.price }}</strong></p>
                             <p class="toast-txt"><strong>Qty: {{ item.quantity }}</strong></p>
-                            <p class="toast-txt"><strong>Sub Total: €{{ item.book.price | calc_subtotal:item.quantity }}</strong></p>
+                            <p class="toast-txt">
+                                <strong>Sub Total: 
+                                    {% if item.book.condition == 'used' %}
+                                        €{{ item.price_used | calc_subtotal_used:item.quantity }}
+                                    {% else %}
+                                        €{{ item.book.price | calc_subtotal:item.quantity }}
+                                    {% endif %}
+                                </strong>
+                            </p>
                         </div>
                     </div>
                 </div>

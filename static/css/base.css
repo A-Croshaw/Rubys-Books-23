@@ -27,7 +27,7 @@
     --btn-border-1: #001aff ridge 3px;
     --btn-border-2: #ff0000 ridge 3px ;
     --btn-nav:  #ffffff;
-    --sort-btn:#ffffff00;
+    --sort-btn: #ffffff00;
     --sort-btn-arrow: #ffffff;
     --btn-quantity-shadow: 0px 5px 5px 0px rgba(255, 0, 0, 0.4);
     --btn-quantity-border: 2px solid rgba(255, 0, 0, 0.4);
@@ -38,8 +38,8 @@
 }
 
 body{
-    background: url(../images/background-image.webp) no-repeat center;
-    background-attachment:fixed;
+    background: url(/media/background-image.webp) no-repeat center;
+    background-attachment: fixed;
     background-color: var(--bg-color);
 }
 
@@ -58,7 +58,7 @@ body{
 }
 
 .nav-top{
-    position:relative;
+    position: relative;
 }
 
 .nav-bg{
@@ -194,7 +194,7 @@ input[name='quantity']:hover {
 
 .sort-items {
     display: none;
-    position:relative;
+    position: relative;
     width: 50px;
     background-color: var(--bg-fade);
     overflow: auto;
@@ -362,7 +362,7 @@ font-family: var(--headers)
 
 .manage-txt{
     font-family: var(--txt);
-    color:var(--txt-color);
+    color: var(--txt-color);
 }
 
 .manage-header{
@@ -423,7 +423,7 @@ font-family: var(--headers)
 }
 
 .cart-txt{
-    text-align:center;
+    text-align: center;
 }
 
 .cart-txt-price{
@@ -433,15 +433,47 @@ font-family: var(--headers)
 .cart-headers{
     font-size: 1.5rem;
 }
+
 .cart-header-2{
  font-size: 1.1rem;
 }
+
 .cart-totals{
     font-size: 1.5rem;
 }
 
 .cart-grand-total{
     font-size: 1.75rem;
+}
+/*check out */
+
+.thank-you-txt{
+    font-family: var(--txt);
+    color: #000;
+}
+
+
+.thank-you-box{
+    max-width: 600px;
+}
+
+.thank-you-txt{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.thank-you-order{
+    font-size: 1.2rem;
+}
+
+.checkout-img{
+    height: 140px;
+    width: 100px;
+}
+
+.checkout-txt{
+    font-size: 1rem;
+    text-align: left;
 }
 
 /* About & Contact */
@@ -490,6 +522,7 @@ font-family: var(--headers)
 .toast-item-list{
     max-height: 350px;
 }
+
 .custom-toast {
     overflow: visible;
 }
@@ -509,13 +542,15 @@ font-family: var(--headers)
     padding: 2px;
     margin: 0;
 }
+
 .toast-header,
 .toast-header-2,
 .toast-txt,
 .toast-top-txt{   
-    font-family: var(--txt), sans-serif, Arial;
+    font-family: var(--txt);
     color: var(--txt-color);
 }
+
 .toast-bg{
     background-color: var(--bg-color);
 }
@@ -532,6 +567,52 @@ font-family: var(--headers)
 
 .toast-top-success{
     color: var(--txt-color);
+}
+
+
+/* Accounts */
+.account-login{
+    font-family: var(--headers);
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.login, .sign-up{
+    background-color: var(--bg-color);
+}
+
+.login-txt, .login{
+    font-size: 1.2rem;
+}
+
+.sign-up{
+    font-size: 1rem;
+}
+
+.login-txt, .login, .sign-up{
+    font-family: var(--txt);
+    color: var(--txt-color);
+    
+}
+
+.btn-account, .btn-sign-up:hover{
+    border: #ff0000 ridge 3px ;
+    font-family: var(--account-txt);
+    font-weight: 600;
+    font-size: 1.15rem;
+    background-color: #8f8888;
+    color: var(--txt-color);
+
+}
+
+.btn-sign-up, .btn-account:hover{
+    border: #001aff ridge 3px ;
+    font-family: var(--txt);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--txt-color);
+    background-color: #8f8888;
+    text-decoration: none;
 }
 
 /* Media queries*/

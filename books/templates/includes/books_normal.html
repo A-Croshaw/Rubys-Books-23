@@ -13,7 +13,7 @@
             </a>
             {% endif %}
             <div class="card-body card-title bg-white pb-1  ">
-                <p class="mb-0 mb-1 pt-2 p-1">{{ book.title }}</p>
+                <p class="mb-0 mb-1 pt-2 p-1">{{ book.title }} {{ item.book.title }} {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</p>
             </div>
             <div class="card-footer bg-white card-details pt-1">
                 <div class="row">

@@ -50,7 +50,7 @@
                         {% endif %}
                     </div>
                     <div class="col-10 col-sm-5 py-0 px-2 m-0">
-                        <p class="manage-txt">Title: {{ book.title }}</p>
+                        <p class="manage-txt">Title: {{ book.title }} {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</p>
                     </div>
                     <div class="col-8 col-sm-4 py-0 px-2 m-0">
                         <p class="manage-txt">Author: {{ book.author }}</p>

@@ -16,7 +16,7 @@
             <div class="col-8 ms-1 p-4  ">
                 <div class="row">
                     <div class="col-8 d-flex justify-content-start">
-                        <p class="mobile-view-txt">{{ book.title }}</p>
+                        <p class="mobile-view-txt">{{ book.title }} {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</p>
                     </div>
                     <div class="col-4 d-flex justify-content-end">
                         <p class="mobile-view-txt"><strong>€{{ book.price }}</strong></p>

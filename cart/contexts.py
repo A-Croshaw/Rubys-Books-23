@@ -23,6 +23,7 @@ def shopping_items(request):
                 'item_id': item_id,
                 'quantity': quantity,
                 'book': book,
+                'price_used':price_used,
             })
         else:
             total += quantity * book.price
