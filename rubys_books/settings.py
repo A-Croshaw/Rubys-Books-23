@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'cart',
     'about',
     'contact',
+    'checkout',
+    'profiles',
 
     #Others
     "crispy_forms",
@@ -181,6 +183,12 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 FREE_DELIVERY = 20
 STANDARD_DELIVERY = 5
+
+# Stripe
+STRIPE_CURRENCY = 'eur'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 
 
 if 'DEVELOPMENT' in os.environ:
