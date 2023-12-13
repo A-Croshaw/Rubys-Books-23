@@ -1,0 +1,50 @@
+<div class="container p-0 pt-2  m-0 mt-3 box-shadow">
+    <div class="row py-1">
+        <div class="col justify-content-center">
+            {% if item.book.image %}
+            <a href="{% url 'book_view' item.book.id %}">
+                <img class="mob-img-all rounded" style="max-width: 130px;" src="{{ item.book.image.url }}"
+                    alt="{{ item.book.title }}">
+            </a>
+            {% else %}
+            <a href="{% url 'book_view' item.book.id %}">
+                <img class="mob-img-all rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.book.title }}">
+            </a>
+            {% endif %}
+                <h2 class="cart-headers-mb">{{ item.book.title }}</h2>
+                <h3 class="cart-header-2-mb">By {{ item.book.author }}</h3>
+                <p class="cart-txt-mb">SKU: {{ item.book.sku|upper }}</p>
+                <hr>
+                <form class="form update-form" method="POST" id="qty-update" action="">
+                    {% csrf_token %}
+                    <div class="input-group qty_input">
+                        <div class="input-group-prepend pt-2 me-1">
+                            <button class="take-qty btn-cart" data-item_id="{{ item.item_id }}"
+                                id="take-qty_{{ item.item_id }}">
+                                <span class="icon">
+                                    <i class="fas fa-minus"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}"
+                            min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                        <div class="input-group-append pt-2 ms-1">
+                            <button class="add-qty btn-cart" data-item_id="{{ item.item_id }}"
+                                id="add-qty_{{ item.item_id }}">
+                                <span class="icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <a class="update-link text-dark pt-2 ms-4" id="qty-update"><small>Update</small></a>
+                <a class="remove-item text-danger pt-2 ms-2" id="remove_{{ item.item_id }}"
+                    data-book_size="{{ item.size }}"><small>Remove</small></a>
+                <hr>
+                <p class="cart-txt-price-mb"><strong>Price: €{{ item.book.price }}</strong></p>
+                <p class="cart-txt-mb"><strong>Sub Total: </strong></p>
+            </div>
+        </div>
+    </div>
+</div>

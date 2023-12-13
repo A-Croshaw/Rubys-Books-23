@@ -408,6 +408,71 @@ font-family: var(--headers)
 
 }
 
+.cart-txt,
+.cart-headers,
+.cart-header-2,
+.cart-txt-price,
+.cart-totals,
+.cart-grand-total,
+.cart-header{
+    font-family: var(--account-txt), sans-serif, Arial;
+    color: #000;
+}
+
+.cart-header{
+    font-size: 2rem;
+}
+
+.cart-txt{
+    text-align:center;
+}
+
+.cart-txt-price{
+    text-align: center;
+}
+
+.cart-headers{
+    font-size: 1.5rem;
+}
+.cart-header-2{
+ font-size: 1.1rem;
+}
+.cart-totals{
+    font-size: 1.5rem;
+}
+
+.cart-grand-total{
+    font-size: 1.75rem;
+}
+
+/* About & Contact */
+
+.btn-send{
+    border: var(--btn-border-2);
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    font-family: var(--txt);
+    padding: 5px 10px;
+    font-size: 1.5rem;
+}
+
+.btn-send:hover{
+    border: var(--btn-border-1);
+}
+
+/* Contact/About */
+
+.form-labels{
+    font-family: var(--account-txt);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.about-txt{
+    font-family: var(--account-txt);
+    font-size: 1.15rem;
+}
+
 /* Media queries*/
 
 @media (min-width: 600px) {
