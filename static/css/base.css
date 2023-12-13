@@ -378,7 +378,6 @@ font-family: var(--headers)
 .book-list{
     max-height: 600px;
     overflow-y: scroll;
-    scrollbar-color: #ff0000;
 }
 
 .btn-add{
@@ -415,7 +414,7 @@ font-family: var(--headers)
 .cart-totals,
 .cart-grand-total,
 .cart-header{
-    font-family: var(--account-txt), sans-serif, Arial;
+    font-family: var(--txt);
     color: #000;
 }
 
@@ -463,14 +462,76 @@ font-family: var(--headers)
 /* Contact/About */
 
 .form-labels{
-    font-family: var(--account-txt);
+    font-family: var(--txt);
     font-weight: 300;
     font-size: 1rem;
 }
 
 .about-txt{
-    font-family: var(--account-txt);
+    font-family: var(--txt);
     font-size: 1.15rem;
+}
+
+/* toast view */
+
+.toast-img{
+    max-height: 6rem;
+}
+
+
+.message-container {
+    position: fixed;
+    top: 50px;
+    right: 5px;
+    z-index: 99999999999;
+    max-width: 280px;
+}
+
+.toast-item-list{
+    max-height: 350px;
+}
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.toast-header{
+    font-size: 1.2rem;
+    padding: 0px;
+    margin: 0;
+}
+
+.toast-header-2{
+    font-size: 1rem;
+    padding: 2px;
+    margin: 0;
+}
+.toast-header,
+.toast-header-2,
+.toast-txt,
+.toast-top-txt{   
+    font-family: var(--txt), sans-serif, Arial;
+    color: var(--txt-color);
+}
+.toast-bg{
+    background-color: var(--bg-color);
+}
+
+.toast-txt{
+    font-size: .9rem;
+    padding: 0;
+    margin: 0;
+}
+
+.toast-top-txt{
+    font-size: 1.2rem;
+}
+
+.toast-top-success{
+    color: var(--txt-color);
 }
 
 /* Media queries*/

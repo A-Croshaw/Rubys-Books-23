@@ -6,7 +6,8 @@ function sendMail(contactForm) {
     })
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
-        window.location.reload()
+        window.location.reload();
+        document.getElementById('enquirey').innerText = "your enquirey has been sent";
     }, function(error) {
         console.log('FAILED...', error);
     });

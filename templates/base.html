@@ -44,6 +44,25 @@
     {% include 'includes/header.html' %}
     <div class="container row d-flex float-right">
        <!--Messages-->
+       <div class="col">
+            {% if messages %}
+            <div class="message-container" id="my-alert-2">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            {% include 'includes/toasts/toast_error.html' %}
+                        {% elif level == 30 %}
+                            {% include 'includes/toasts/toast_warning.html' %}
+                        {% elif level == 25 %}
+                            {% include 'includes/toasts/toast_success.html' %}
+                        {% else %}
+                            {% include 'includes/toasts/toast_info.html' %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
     </div>
     <div class="container col-10 d-block d-md-none rounded my-2 py-3 bg-fade">
         <!--Search Bar For Mobile View-->

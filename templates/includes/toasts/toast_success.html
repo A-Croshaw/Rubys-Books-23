@@ -1,0 +1,64 @@
+{% load calc_tool%}
+<div class="p-2 toast-bg box-shadow" id="my-alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close"></button>
+    <div class="arrow-up arrow-success"></div>
+    <div class="w-100 toast-capper bg-success"></div>
+    <div class="row">
+        <div class="col">
+                <p class="toast-top-txt toast-top-success"> {{ message }}</p>
+            <hr class="mt-1 mb-3">
+        </div>
+    </div>
+    {% if overal_total and not on_profile_page %}
+    <p class="toast-top-txt text-center">Your Bag has {{ item_count }} items</p>
+    <hr class="mt-1 mb-3">
+    <div class="overflow-scroll toast-item-list">
+        {% for item in cart_items %}
+        <div class="card p-1" style="max-height: 400px;">
+            <div class="row bg-white">
+                <div class="col-4 pt-3 ps-3 justify-content-center" style="max-width: 5rem;">
+                    {% if item.book.image %}
+                        <img class="img-fluid rounded"  src="{{ item.book.image.url }}" alt="{{ book.title }}">
+                    {% else %}
+                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ book.title }}">
+                    {% endif %}
+                </div>
+                <div class="col-8 ">
+                    <div class="card-body">
+                        <div class="row">
+                            <h6 class="toast-header">{{ item.book.title }}</h6>
+                            <h6 class="toast-header-2">By {{ item.book.author }}</h6>
+                            <p class="toast-txt"><strong>Price: €{{ item.book.price }}</strong></p>
+                            <p class="toast-txt"><strong>Qty: {{ item.quantity }}</strong></p>
+                            <p class="toast-txt"><strong>Sub Total: €{{ item.book.price | calc_subtotal:item.quantity }}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr class="mt-1">
+    <div class="row">
+        <div class="col text-center">
+            <strong><p class="mb-1">
+                Total{% if free_delivery_difference > 0 %} (Exc. delivery){% endif %}: 
+                <span class="float-right">€{{ total|floatformat:2 }}</span>
+            </p></strong>
+            {% if free_delivery_difference > 0 %}
+                <p class="mb-2 p-2  bg-warning text-center">
+                    Spend <strong>${{ free_delivery_difference }}</strong> more To qualify for free delivery
+                </p>
+            {% endif %}
+            <a href="" class="nav-link nav-txt">
+                <span class="text-uppercase">Secure Checkout</span>
+                <span class="icon"><i class="fas fa-lock"></i></span>
+            </a>
+            <a class="nav-link nav-txt" href="{% url 'shopping_cart' %}" aria-label="View shopping cart">
+                <span class="text-uppercase pe-2">Basket</span>
+                <span class="icon"><i class="fas fa-shopping-bag fa-sm"></i></span>
+            </a>
+        </div>
+    </div>
+    {% endif%}
+</div>
