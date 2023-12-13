@@ -1,50 +1,48 @@
-<div class="container d-flex flex-row flex-wrap gap-2 justify-content-center">
+<div class="container-fluid d-flex flex-row flex-wrap gap-4 justify-content-center">
     <!-- searches through books rendering each one individually as small cards-->
     {% for book in books %}
-    <div class="card-md mt-3 p-md-1">
-        <div class="card-body book-bg box-shadow p-3">
-            {% if book.image %}
-            <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
-                <img class="card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
-            </a>
-            {% else %}
-            <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
-                <img class="card-img mb-4 pb-1" src="{{ MEDIA_URL }}no-image.png" alt="{{ book.title }}">
-            </a>
-            {% endif %}
-            <div class="card-body card-title bg-white pb-1  ">
-                <p class="mb-0 mb-1 pt-2 p-1">{{ book.title }} {{ item.book.title }} {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</p>
-            </div>
-            <div class="card-footer bg-white card-details pt-1">
-                <div class="row">
-                    <div class="col">
-                        <p class="lead mb-0 text-left font-weight-bold"><strong>€{{ book.price }}</strong></p>
-                        {% if book.category %}
-                        <p class="small">
-                            <a class="text-muted"
-                                href="{% url 'books' %}?category={{ book.category.name }}">
-                                {{ book.category.view_name }}
-                            </a>
-                        </p>
-                        {% endif %}
-                        {% if book.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1 rating"></i>{{ book.rating }} /
-                            5</small>
-                        {% else %}
-                        <small class="text-muted">No Rating</small>
-                        {% endif %}
-                        {% if request.user.is_superuser %}
-                        <small class="ml-3 ms-3 ps-4">
-                            <!--edit button-->
-                            <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
-                            <!--delete button-->
-                            <a class="text-danger" href="{% url 'book_delete' book.id %}" aria-label="Delete {{ book.title }}">Delete</a>
-                        </small>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+    <div class="book-bg box-shadow p-3 px-4">
+    <div class="row d-flex justify-content-center bg-white">
+        <div class="col-5 book-card-img">
+                {% if book.image %}
+                <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
+                    <img class="card-img" src="{{ book.image.url }}" alt="{{ book.title }}">
+                </a>
+                {% else %}
+                <a href="{% url 'book_view' book.id %}" aria-label="View {{ book.title }}">
+                    <img class="card-img mb-4 pb-1" src="{{ MEDIA_URL }}no-image.png" alt="{{ book.title }}">
+                </a>
+                {% endif %}
         </div>
+        <div class="col-7 book-card-title">
+            <p class="mb-0 mb-1 pt-2 p-1 all-view-txt">{{ book.title }} {{ item.book.title }} {%if book.condition == 'used'%}<i class="fa-solid fa-tag fa-beat" style="color: #fa0000;"></i>{%endif%}</p>
+            <p class="lead mb-0 text-left font-weight-bold"><strong>€{{ book.price }}</strong></p>
+            {% if book.category %}
+            <p class="small">
+                <a class="text-muted"
+                    href="{% url 'books' %}?category={{ book.category.name }}">
+                    {{ book.category.view_name }}
+                </a>
+            </p>
+            {% endif %}
+            {% if book.rating %}
+            <small class="text-muted"><i class="fas fa-star mr-1 rating"></i>{{ book.rating }} /
+                5</small>
+            {% else %}
+            <small class="text-muted">No Rating</small>
+            {% endif %}
+            {% if request.user.is_superuser %}
+            <div class="row">
+                <small>
+                    <!--edit button-->
+                    <a href="{% url 'edit_book' book.id %}" aria-label="Edit {{ book.title }}">Edit</a> |
+                    <!--delete button-->
+                    <a class="text-danger" href="{% url 'book_delete' book.id %}" aria-label="Delete {{ book.title }}">Delete</a>
+                </small>
+            </div>
+            {% endif %}
+        </div>
+    </div>
     </div>
     {% endfor %}
 </div>

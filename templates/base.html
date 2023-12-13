@@ -80,17 +80,11 @@
             </div>
         </form>
     </div>
-    <main class="row m-1 mb-5">
-        <!--Side Nav-->
-        <div class="container col-1 d-none d-md-block side-nav nav-bg">
-            {% include 'includes/main-nav.html' %}
-        </div>
-        <!--Main Content-->
-        <div class="container col-md-11 d-md-flex offset-md-1 offset-xl-1 pb-2">
-                {% block content %}
-                {% endblock %}
-        </div>
+    <main>
+        {% block content %}
+        {% endblock %}
     </main>
+
     <!--Footer-->
     {% include 'includes/footer.html' %}
 
