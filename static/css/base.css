@@ -170,13 +170,56 @@ input[name='quantity']:hover {
 
 /* home page */
 
+.home-header{
+    font-family: var(--headers);
+    font-size: 3.5rem;
+    font-weight: 800;
+
+}
+
+.header-box{
+    max-width: 900px;
+}
+
+.home-txt{
+    font-family: var(--txt);
+    font-size: 2rem;
+}
+
+.home-txt-2{
+    font-family: var(--txt);
+    font-size: 1.5rem;
+}
+
+.home-box{
+    max-width: 800px;
+}
+
+.btn-home{
+    font-family: var(--txt);
+    background-color: var(--btn-color);
+    border: var(--btn-border-2);
+    text-align: center;
+    padding: 10px 0;
+    color: var(--txt-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    width: 200px;
+}
+
+.btn-home:hover{
+    background-color: var(--btn-color);
+    border: var(--btn-border-1);
+    color: var(--txt-color);
+    text-decoration: none;
+}
+
 /* Sorting menu */
 
 .sort-btn-arrow {
     border: none;
     text-decoration: none;
 }
-
 
 .sort-btn {
     color: var(--txt-color);

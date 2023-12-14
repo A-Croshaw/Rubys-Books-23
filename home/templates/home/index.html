@@ -3,13 +3,23 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="container bg-fade">
-        <div class='row'>
-            <div class="col">
-
-            </div>
-            <div class="col">
-                
-            </div>
+<div class="container mb-3">
+    <div class="container-fluid home-box">
+        <div class="my-5 py-3">
+            <h1 class="home-header bg-fade text-center rounded pb-3 box-shadow"> Welcome To Ruby's Books</h1>
         </div>
+        <div class="my-5 py-3">
+            <h2 class="home-txt mt-5 bg-fade box-shadow text-center">Red Tag Sale <i class="fa-solid fa-tag fa-beat"
+                style="color: #fa0000;"></i></h2>
+            <p class="home-txt-2 mb-5 bg-fade box-shadow text-center"> Don't miss out on our half price red tag sale on used
+                books.</p>
+        </div>
+        <div class="my-5 py-3">
+            <p class="text-center position-absolute bottom-25 start-50 translate-middle-x"><a class=" btn btn-home" href="{% url 'books' %}" aria-label="View {{ book.title }}">
+                ALL books
+            </a></p>
+        </div>
+
+    </div>
+</div>
 {% endblock %}
