@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}404{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="container-fluid home-box">
+        <div class="my-5 py-md-3">
+            <h1 class="home-header bg-fade text-center rounded pb-3 box-shadow"> Error 404</h1>
+        </div>
+        <div class="my-5 py-md-3">
+            <h2 class="home-txt mt-5 bg-fade box-shadow text-center"> Sorry soming went wrong!! the page you was looking for is not available.</h2>
+            <p class="home-txt-2 mb-5 bg-fade box-shadow text-center"> Don't miss out on our half price red tag sale on used
+                books.</p>
+        </div>
+        <div class="my-5 py-md-3">
+            <p class="text-center position-absolute bottom-25 start-50 translate-middle-x"><a class=" btn btn-home" href="{% url 'books' %}" aria-label="View {{ book.title }}">
+                Return To The Shop
+            </a></p>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
